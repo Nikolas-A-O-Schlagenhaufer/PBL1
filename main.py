@@ -1,16 +1,45 @@
+from estudo import Estudo
 import pandas as pd
-import matplotlib.pyplot as plt
 
 def main():
-	data = pd.read_excel('healthy/lga1-1-1.xlsx')
-	data.dropna(inplace=True)
-	data = data[data['Obj'] < 100]
-	passos = [data[data['Obj'] == i+1] for i in range(max(data['Obj']))]
-	for passo in passos:
-		passo.plot(x='X', y='Y', kind='scatter', s=5, title=f"Passo: {passo['Obj'].iloc[0]}")
-	plt.show()
-	data.plot(x='X', y='Y', kind='scatter', s=5, title='Passos')
-	plt.show()
+	estudo = Estudo()
+	colunas = [
+		'paciente',
+		'movimento',
+		'passo',
+		'lado',
+		'calcanhar_x',
+		'calcanhar_y',
+		'ponta_x',
+		'ponta_y',
+		'tempo',
+		'x',
+		'y',
+		'saudavel'
+	]
+	dados = []
+	for paciente in estudo.pacientes:
+		for movimento in paciente.movimentos:
+			for passo in movimento.passos:
+				for tempo, x, y in zip(passo.tempos, passo.x, passo.y):
+					dados.append([
+						paciente.numero,
+						movimento.tipo,
+						passo.numero,
+						passo.lado,
+						passo.calcanhar[0],
+						passo.calcanhar[1],
+						passo.ponta[0],
+						passo.ponta[1],
+						tempo,
+						x,
+						y,
+						paciente.saudavel
+					])
+
+	dados = pd.DataFrame(dados, columns=colunas)
+	print(dados.head(10))
+	print(dados.tail(10))
 
 if __name__ == '__main__':
 	main()

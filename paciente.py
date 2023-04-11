@@ -6,6 +6,9 @@ class Paciente:
 		self.numero = numero
 		self.saudavel = self.eh_saudavel()
 		self.movimentos = self.adicionar_movimentos()
+
+	def __str__(self) -> str:
+		return f"Paciente {self.numero} está {'saudável' if self.saudavel else 'doente'}"
 		
 	def eh_saudavel(self) -> bool:
 		return self.numero < 25

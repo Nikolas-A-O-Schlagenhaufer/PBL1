@@ -2,7 +2,7 @@ from passo import Passo
 
 class Movimento:
 	def __init__(self, nome_arquivo:str):
-		self.tipo = nome_arquivo.split('-')[1]
+		self.tipo = int(nome_arquivo.split('-')[1][0])
 		try:
 			self.sentido = nome_arquivo.split('-')[2][:1]
 		except:
