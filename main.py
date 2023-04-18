@@ -191,7 +191,10 @@ def teste_paciente(paciente:pd.DataFrame):
 	chance = sum(results)/len(results)
 	diagnosis = 'saudável' if chance > 0.5 else 'não saudável'
 	print('===Diagnóstico===')
-	print(f'Chance de ser {diagnosis}: {chance*100:.2f}%')
+	if diagnosis == 'saudável':
+		print(f'Chance de ser {diagnosis}: {chance*100:.2f}%')
+	else:
+		print(f'Chance de ser {diagnosis}: {(1-chance)*100:.2f}%')
 	print('=================')
 
 
@@ -247,6 +250,11 @@ def testar_paciente(caminho:str):
 	teste_paciente(paciente)
 
 	
+def para_csv():
+	dados = pd.read_parquet('dados.parquet')
+	dados.to_csv('dados.csv', index=False)
+
+
 def main():
 
 	# Gerar modelo a partir de uma árvore de decisão
@@ -256,8 +264,7 @@ def main():
 	# mostrar_marcha()
 
 	# Testar um paciente
-	testar_paciente('lga12-5-2.xlsx')
-
+	testar_paciente('lga35-1-2.xlsx')
 
 if __name__ == '__main__':
 	main()
