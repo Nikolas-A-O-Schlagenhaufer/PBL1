@@ -264,7 +264,7 @@ def main():
 	# mostrar_marcha()
 
 	# Testar um paciente
-	testar_paciente('lga35-1-2.xlsx')
+	testar_paciente('lga35-8.xlsx')
 
 if __name__ == '__main__':
 	main()
