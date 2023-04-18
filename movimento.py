@@ -4,7 +4,7 @@ class Movimento:
 	def __init__(self, nome_arquivo:str):
 		self.tipo = int(nome_arquivo.split('-')[1][0])
 		try:
-			self.sentido = nome_arquivo.split('-')[2][:1]
+			self.sentido = int(nome_arquivo.split('-')[2][:1])
 		except:
 			self.sentido = 1
 		self.passos = self.adicionar_passos(nome_arquivo)
@@ -27,8 +27,8 @@ class Movimento:
 			passo.ponta = (x[1], y[1])
 			lado = dados[dados['Obj'] == i+1]['L/R'].to_list()[0]
 			if lado == 0:
-				passo.lado = 'E'
+				passo.lado = 0
 			else:
-				passo.lado = 'D'
+				passo.lado = 1
 			passos.append(passo)
 		return passos

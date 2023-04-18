@@ -10,8 +10,8 @@ class Paciente:
 	def __str__(self) -> str:
 		return f"Paciente {self.numero} está {'saudável' if self.saudavel else 'doente'}"
 		
-	def eh_saudavel(self) -> bool:
-		return self.numero < 25
+	def eh_saudavel(self):
+		return 1 if self.numero < 25 else 0
 
 	def adicionar_movimentos(self) -> list:
 		import os

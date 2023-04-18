@@ -2,3 +2,5 @@ PBL1/
 .vscode/
 test.py
 __pycache__/
+brutos.parquet
+dados.parquet
