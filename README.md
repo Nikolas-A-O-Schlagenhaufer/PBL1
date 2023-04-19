@@ -15,4 +15,5 @@ Com essas informações o código irá gerar o gráfico solicitado, perguntando 
 - `teste_tree()`: essa função pode ser utilizada para encontrar o melhor modelo novamente caso mais arquivos de testes de marcha sejam obtidos. 
 
 ### Códigos auxiliares
-Os outros arquivos `.py` são códigos auxiliares utilizados para o tratamento e leitura dos dados dos arquivos `.xlsx`.
+- Os outros arquivos `.py` são códigos auxiliares utilizados para o tratamento e leitura dos dados dos arquivos `.xlsx`;
+- Dentro da pasta `Simulacao_unity` se encontra o código responsável por movimentar o pé e por identificar o arquivo `.csv` gerado a partir dos arquivos `.xlsx` brutos.
