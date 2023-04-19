@@ -4,6 +4,5 @@ test.py
 __pycache__/
 brutos.parquet
 dados.parquet
-dados_brutos.xlsx
-dados_tratados.xlsx
 paciente35-1-2.svg
+Diagrama de Classes PBL1.png
